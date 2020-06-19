@@ -7,8 +7,8 @@ import { HashRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 import Header from '../Header/Header';
 import FeelingForm from '../FeelingForm/FeelingForm';
 import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
-// import SupportForm from '../SupportForm/SupportForm';
-// import CommentForm from '../CommentForm/CommnetForm';
+import SupportForm from '../SupportForm/SupportForm';
+import CommentForm from '../CommentForm/CommentForm';
 import Review from '../Review/Review';
 import Footer from '../Footer/Footer';
 
@@ -45,10 +45,10 @@ class App extends Component {
             <UnderstandingForm/>
             </Route>
             <Route exact path ="/support">
-            {/* <SupportForm/> */}
+            <SupportForm/>
             </Route>
-            <Route exact path ="/comment">
-            {/* <CommentForm/> */}
+            <Route exact path ="/comments">
+            <CommentForm/>
             </Route>
             <Route exact path ="/review">
             <Review getFeedback = {this.getFeedback}/>

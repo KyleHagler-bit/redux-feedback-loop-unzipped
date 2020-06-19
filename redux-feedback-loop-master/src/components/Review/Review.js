@@ -11,14 +11,16 @@ class Review extends React.Component {
   render() {
     const {feeling} = this.props.feeling;
     const {understanding} = this.props.understanding;
+    const {support} = this.props.support;
+    const {comments} = this.props.comments;
     console.log(`feel: ${feeling} understand: ${understanding}`)
     return (
       <div>
         <h2>Review Your Feedback</h2>
         Feelings:{feeling} <br/>
         Understanding: {understanding} <br/>
-        Support: <br/>
-        Comments: <br/>
+        Support: {support}<br/>
+        Comments: {comments}<br/>
         <button>Submit</button>
       </div>
     ); // end return
@@ -29,7 +31,9 @@ const mapStateToProps = (state) => {
 	// pull current order from Redux store
 	return {
     feeling: state.feeling,
-    understanding: state.understanding
+    understanding: state.understanding,
+    support: state.support,
+    comments: state.comments
   };
 };
 
