@@ -20,14 +20,15 @@ class UnderstandingForm extends React.Component {
   submitInfo = (event) => {
 		// validation is handled by the form "required" attribute
     event.preventDefault();
+    this.props.dispatch({ type: "UPDATE", payload: this.state });
     this.props.history.push("/support");
   };
 
   // componentWillUnmout is called when the client navigates away from the form page
-  componentWillUnmount() {
-    console.log ("understanding payload", this.state)
-    this.props.dispatch({ type: "UPDATE_UNDERSTANDING", payload: this.state });
-  }
+  // componentWillUnmount() {
+  //   console.log ("understanding payload", this.state)
+  //   this.props.dispatch({ type: "UPDATE", payload: this.state });
+  // }
 	
 
   render() {

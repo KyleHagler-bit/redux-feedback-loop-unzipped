@@ -10,6 +10,7 @@ import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
 import SupportForm from '../SupportForm/SupportForm';
 import CommentForm from '../CommentForm/CommentForm';
 import Review from '../Review/Review';
+import Submission from '../Submission/Submission'
 import Footer from '../Footer/Footer';
 
 
@@ -17,6 +18,7 @@ import Footer from '../Footer/Footer';
 
 class App extends Component {
 
+  //this even needed????????
   getFeedback = () => {
     // grab the dispatch function from props
     const { dispatch } = this.props;
@@ -52,6 +54,9 @@ class App extends Component {
             </Route>
             <Route exact path ="/review">
             <Review getFeedback = {this.getFeedback}/>
+            </Route>
+            <Route exact path ="/submission">
+            <Submission/>
             </Route>
           </Switch>
           <Footer />

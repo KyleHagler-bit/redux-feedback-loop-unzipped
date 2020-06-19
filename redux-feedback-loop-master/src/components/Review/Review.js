@@ -8,20 +8,46 @@ import { withRouter } from "react-router";
 class Review extends React.Component {
  //here in review on submit is when the data should be sent to the database....
 
+postHandler = (form) =>{
+  axios.post(`/api/review`, form )
+      .then(response => {
+
+        //some kind of way to clear global state
+       //DISPATCH
+       this.props.dispatch({ type: "CLEAR", payload: {} });
+
+      })
+      .catch( error => {
+        console.log(error);
+        alert(`ERROR`);
+      })
+}
+
+ submitInfo = (event) => {
+  // validation is handled by the form "required" attribute
+  event.preventDefault();
+  this.postHandler(this.props.form);
+  this.props.history.push("/");
+};
+
+// componentWillUnmount() {
+//   //This should be a post
+//   this.postHandler(this.props.form);
+// }
+
   render() {
-    const {feeling} = this.props.feeling;
-    const {understanding} = this.props.understanding;
-    const {support} = this.props.support;
-    const {comments} = this.props.comments;
+    const {feeling, understanding, support, comments} = this.props.form;
     console.log(`feel: ${feeling} understand: ${understanding}`)
     return (
       <div>
         <h2>Review Your Feedback</h2>
+        <form onSubmit={this.submitInfo}>
         Feelings:{feeling} <br/>
         Understanding: {understanding} <br/>
         Support: {support}<br/>
         Comments: {comments}<br/>
         <button>Submit</button>
+        </form>
       </div>
     ); // end return
   } // end render
@@ -30,10 +56,7 @@ class Review extends React.Component {
 const mapStateToProps = (state) => {
 	// pull current order from Redux store
 	return {
-    feeling: state.feeling,
-    understanding: state.understanding,
-    support: state.support,
-    comments: state.comments
+    form: state.form
   };
 };
 

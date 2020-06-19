@@ -8,45 +8,59 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 
-const feelingReducer = (state = {}, action) => {
-  console.log("action in feelingReducer", action.payload)
+const formReducer = (state =
+  {
+    feeling: 0,
+    understanding: 0,
+    support: 0,
+    comments: ''
+  }, action) => {
+  console.log("action in Reducer", action.payload)
   let newState = { ...state };
-  if (action.type === "UPDATE_FEELING") {
+  if (action.type === "UPDATE") {
     newState = { ...newState, ...action.payload };
-  } 
+  } else if (action.type === "CLEAR") {
+    newState = {
+      feeling: 0,
+      understanding: 0,
+      support: 0,
+      comments: ''
+    }
+  }
+  console.log(newState);
   return newState;
 };
 
-const understandingReducer = (state = {}, action) => {
-  let newState = { ...state };
-  if (action.type === "UPDATE_UNDERSTANDING") {
-    newState = { ...newState, ...action.payload };
-  } 
-  return newState;
-};
+// const understandingReducer = (state = {}, action) => {
+//   let newState = { ...state };
+//   if (action.type === "UPDATE_UNDERSTANDING") {
+//     newState = { ...newState, ...action.payload };
+//   } 
+//   return newState;
+// };
 
-const supportReducer = (state = {}, action) => {
-  let newState = { ...state };
-  if (action.type === "UPDATE_SUPPORT") {
-    newState = { ...newState, ...action.payload };
-  } 
-  return newState;
-};
+// const supportReducer = (state = {}, action) => {
+//   let newState = { ...state };
+//   if (action.type === "UPDATE_SUPPORT") {
+//     newState = { ...newState, ...action.payload };
+//   } 
+//   return newState;
+// };
 
-const commentsReducer = (state = { comments: ""}, action) => {
-  let newState = { ...state };
-  if (action.type === "UPDATE_COMMENTS") {
-    newState = { ...newState, ...action.payload };
-  } 
-  return newState;
-};
+// const commentsReducer = (state = { comments: ""}, action) => {
+//   let newState = { ...state };
+//   if (action.type === "UPDATE_COMMENTS") {
+//     newState = { ...newState, ...action.payload };
+//   } 
+//   return newState;
+// };
 
 const storeInstance = createStore(
   combineReducers({
-    feeling: feelingReducer,
-    understanding: understandingReducer,
-    support: supportReducer,
-    comments: commentsReducer,
+    form: formReducer,
+    // understanding: understandingReducer,
+    // support: supportReducer,
+    // comments: commentsReducer,
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

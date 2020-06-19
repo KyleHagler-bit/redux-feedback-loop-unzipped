@@ -20,14 +20,15 @@ class SupportForm extends React.Component {
   submitInfo = (event) => {
 		// validation is handled by the form "required" attribute
     event.preventDefault();
+    this.props.dispatch({ type: "UPDATE", payload: this.state });
     this.props.history.push("/comments");
   };
 
   // componentWillUnmout is called when the client navigates away from the form page
-  componentWillUnmount() {
-    console.log ("support payload", this.state)
-    this.props.dispatch({ type: "UPDATE_SUPPORT", payload: this.state });
-  }
+  // componentWillUnmount() {
+  //   console.log ("support payload", this.state)
+  //   this.props.dispatch({ type: "UPDATE", payload: this.state });
+  // }
 	
 
   render() {

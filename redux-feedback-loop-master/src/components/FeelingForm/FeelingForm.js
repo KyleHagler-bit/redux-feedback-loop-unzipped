@@ -20,6 +20,7 @@ class FeelingForm extends React.Component {
   submitInfo = (event) => {
 		// validation is handled by the form "required" attribute
     event.preventDefault();
+    this.props.dispatch({ type: "UPDATE", payload: this.state });
     this.props.history.push("/understanding");
   };
 
@@ -29,10 +30,10 @@ class FeelingForm extends React.Component {
   }
 
   // componentWillUnmout is called when the client navigates away from the form page
-  componentWillUnmount() {
-    console.log ("feeling payload", this.state)
-    this.props.dispatch({ type: "UPDATE_FEELING", payload: this.state });
-  }
+  // componentWillUnmount() {
+  //   console.log ("feeling payload", this.state)
+  //   this.props.dispatch({ type: "UPDATE", payload: this.state });
+  // }
 
   render() {
  
