@@ -6,15 +6,17 @@ import { withRouter } from "react-router";
 // import { Input, TextField, Button, Select, MenuItem, Paper} from "@material-ui/core";
 
 class Review extends React.Component {
- 
+ //here in review on submit is when the data should be sent to the database....
 
   render() {
     const {feeling} = this.props.feeling;
+    const {understanding} = this.props.understanding;
+    console.log(`feel: ${feeling} understand: ${understanding}`)
     return (
       <div>
         <h2>Review Your Feedback</h2>
         Feelings:{feeling} <br/>
-        Understanding: <br/>
+        Understanding: {understanding} <br/>
         Support: <br/>
         Comments: <br/>
         <button>Submit</button>
@@ -27,6 +29,7 @@ const mapStateToProps = (state) => {
 	// pull current order from Redux store
 	return {
     feeling: state.feeling,
+    understanding: state.understanding
   };
 };
 

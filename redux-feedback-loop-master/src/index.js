@@ -11,7 +11,14 @@ import { Provider } from "react-redux";
 const feelingReducer = (state = { feeling: 0}, action) => {
   let newState = { ...state };
   if (action.type === "UPDATE_FEELING") {
-    // payload need to be an object containing all of the customer info
+    newState = { ...newState, ...action.payload };
+  } 
+  return newState;
+};
+
+const understandingReducer = (state = { understanding: 0}, action) => {
+  let newState = { ...state };
+  if (action.type === "UPDATE_UNDERSTANDING") {
     newState = { ...newState, ...action.payload };
   } 
   return newState;
@@ -20,6 +27,7 @@ const feelingReducer = (state = { feeling: 0}, action) => {
 const storeInstance = createStore(
   combineReducers({
     feeling: feelingReducer,
+    understanding: understandingReducer,
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

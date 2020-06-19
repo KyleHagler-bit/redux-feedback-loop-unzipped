@@ -7,7 +7,7 @@ import { withRouter } from "react-router";
 class UnderstandingForm extends React.Component {
 	
 	state = {
-    understanding:0,
+    understanding: 0,
   }
 
 	// handle change handles input field changes
@@ -20,15 +20,15 @@ class UnderstandingForm extends React.Component {
   submitInfo = (event) => {
 		// validation is handled by the form "required" attribute
     event.preventDefault();
-    this.props.history.push("/");
+    this.props.history.push("/support");
   };
 
   // componentWillUnmout is called when the client navigates away from the form page
   componentWillUnmount() {
+    console.log ("understanding payload", this.state)
     this.props.dispatch({ type: "UPDATE_UNDERSTANDING", payload: this.state });
   }
 	
-
 
   render() {
  

@@ -33,8 +33,6 @@ class FeelingForm extends React.Component {
     console.log ("feeling payload", this.state)
     this.props.dispatch({ type: "UPDATE_FEELING", payload: this.state });
   }
-	
-
 
   render() {
  

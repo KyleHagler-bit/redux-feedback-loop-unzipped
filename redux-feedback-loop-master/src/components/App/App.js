@@ -6,7 +6,7 @@ import { HashRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import FeelingForm from '../FeelingForm/FeelingForm';
-// import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
+import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
 // import SupportForm from '../SupportForm/SupportForm';
 // import CommentForm from '../CommentForm/CommnetForm';
 import Review from '../Review/Review';
@@ -42,7 +42,7 @@ class App extends Component {
             <FeelingForm/>
             </Route>
             <Route exact path ="/understanding">
-            {/* <UnderstandingForm/> */}
+            <UnderstandingForm/>
             </Route>
             <Route exact path ="/support">
             {/* <SupportForm/> */}
