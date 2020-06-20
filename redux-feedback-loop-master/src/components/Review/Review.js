@@ -27,7 +27,7 @@ postHandler = (form) =>{
   // validation is handled by the form "required" attribute
   event.preventDefault();
   this.postHandler(this.props.form);
-  this.props.history.push("/");
+  this.props.history.push("/submission");
 };
 
 // componentWillUnmount() {

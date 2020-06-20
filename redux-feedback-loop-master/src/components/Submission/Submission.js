@@ -6,12 +6,17 @@ import { withRouter } from "react-router";
 
 class Submission extends React.Component {
 
+  redirect = () => {
+    // TODO: Clear the cart and navigate to the product page
+    
+this.props.history.push('/'); //first stretch goal
+}
   render() {
- 
+  
     return (
       <>
         <h2>Thank you!</h2>
-        <button>Leave New Feedback</button>
+        <button onClick={this.redirect}>Leave New Feedback</button>
       </>
     ); // end return
   } // end render

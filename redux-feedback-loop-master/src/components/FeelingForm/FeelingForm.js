@@ -18,7 +18,12 @@ class FeelingForm extends React.Component {
 	
   // submit info handles our form submission
   submitInfo = (event) => {
-		// validation is handled by the form "required" attribute
+    let value = this.state.feeling;
+    console.log("checking in submit info in feelingform",this.state.feeling)
+    if ( value <0 || value > 5 ){
+      alert ("please input a value between 0 and 5");
+      return;
+    }
     event.preventDefault();
     this.props.dispatch({ type: "UPDATE", payload: this.state });
     this.props.history.push("/understanding");
@@ -41,7 +46,7 @@ class FeelingForm extends React.Component {
       <>
         <h2>How are you feeling today?</h2>
         <form onSubmit={this.submitInfo}>
-        <input type = "number" onChange={(event) => this.handleChange(event, "feeling")}></input>
+        <input required type = "number" onChange={(event) => this.handleChange(event, "feeling")}></input>
         <input type="submit" value="NEXT" />
         </form>
         

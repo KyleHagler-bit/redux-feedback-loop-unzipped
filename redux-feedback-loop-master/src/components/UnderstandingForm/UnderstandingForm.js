@@ -18,7 +18,7 @@ class UnderstandingForm extends React.Component {
 	
   // submit info handles our form submission
   submitInfo = (event) => {
-		// validation is handled by the form "required" attribute
+		
     event.preventDefault();
     this.props.dispatch({ type: "UPDATE", payload: this.state });
     this.props.history.push("/support");
@@ -37,7 +37,7 @@ class UnderstandingForm extends React.Component {
       <>
         <h2>How well are you understanding the content?</h2>
         <form onSubmit={this.submitInfo}>
-        <input type = "number" onChange={(event) => this.handleChange(event, "understanding")}></input>
+        <input required type = "number" onChange={(event) => this.handleChange(event, "understanding")}></input>
         <input type="submit" value="NEXT" />
         </form>
         

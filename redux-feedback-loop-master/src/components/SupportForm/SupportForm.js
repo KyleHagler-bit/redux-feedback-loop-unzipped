@@ -37,7 +37,7 @@ class SupportForm extends React.Component {
       <>
         <h2>How well are you being supported?</h2>
         <form onSubmit={this.submitInfo}>
-        <input type = "number" onChange={(event) => this.handleChange(event, "support")}></input>
+        <input required type = "number" onChange={(event) => this.handleChange(event, "support")}></input>
         <input type="submit" value="NEXT" />
         </form>
         
