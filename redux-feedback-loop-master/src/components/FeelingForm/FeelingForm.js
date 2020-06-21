@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-// import { Input, TextField, Button, Select, MenuItem} from '@material-ui/core';
+import {Button, Slider} from '@material-ui/core';
+import './FeelingForm.css';
+
 
 
 class FeelingForm extends React.Component {
@@ -10,18 +12,27 @@ class FeelingForm extends React.Component {
     feeling:0,
   }
 
-	// handle change handles input field changes
-  handleChange = (event, fieldName) => {
-    // console.log(`${fieldName}`, event);
-    this.setState({ [fieldName]: event.target.value });
-  };
-	
+  
+
+	// // handle change handles input field changes
+  // handleChange = (event, fieldName) => {
+  //   // console.log(`${fieldName}`, event);
+  //   this.setState({ [fieldName]: event.target.value });
+  // };
+  
+  handleChange = (event, feeling) =>{
+    this.setState({
+      feeling
+    })
+   
+  }
+
   // submit info handles our form submission
   submitInfo = (event) => {
     let value = this.state.feeling;
     console.log("checking in submit info in feelingform",this.state.feeling)
-    if ( value <0 || value > 5 ){
-      alert ("please input a value between 0 and 5");
+    if ( value <0 || value > 6 ){
+      alert ("please input a value between 0 and 6");
       return;
     }
     event.preventDefault();
@@ -34,6 +45,10 @@ class FeelingForm extends React.Component {
 		
   }
 
+  // function valuetext(value) {
+  //   return ${value};
+  // }
+
   // componentWillUnmout is called when the client navigates away from the form page
   // componentWillUnmount() {
   //   console.log ("feeling payload", this.state)
@@ -41,13 +56,44 @@ class FeelingForm extends React.Component {
   // }
 
   render() {
+    const marks = [
+      {
+        value: 1,
+        label: 'I feel pretty horrible',
+      },
+      {
+        value: 3,
+        label: 'I\'ve felt better',
+      },
+      {
+        value: 4,
+        label: 'I\'ve felt worse',
+      },
+      {
+        value: 6,
+        label: 'I feel great!',
+      },
+    ];
  
     return (
       <>
+      
         <h2>How are you feeling today?</h2>
         <form onSubmit={this.submitInfo}>
-        <input required type = "number" onChange={(event) => this.handleChange(event, "feeling")}></input>
-        <input type="submit" value="NEXT" />
+        {/* <input required type = "number" onChange={(event) => this.handleChange(event, "feeling")}></input> */}
+        <Slider id="feelingSlider"
+  defaultValue={1}
+  onChange={this.handleChange}
+  aria-labelledby="discrete-slider-small-steps"
+  step={1}
+  marks
+  min={1}
+  max={6}
+  valueLabelDisplay="auto"
+  marks = {marks}
+  
+/> <br/>
+        <Button color="primary" variant = "contained" type="submit" value="NEXT" id="submit">NEXT</Button>
         </form>
         
       </>

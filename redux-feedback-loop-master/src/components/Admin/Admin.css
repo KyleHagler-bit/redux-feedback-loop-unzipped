@@ -1,10 +1,14 @@
 #adminTable{
   border-collapse: collapse;
   border: 1px solid black;
+  width: 70%;
+  margin: auto;
+  margin-top: 2%;
 }
 
 td {
   border: 1px solid black;
+  
 }
 
 #deleteBtn{

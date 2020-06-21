@@ -65,12 +65,12 @@ deleteEntry = (id) => {
           {(admin.length===0) && <tr><td colSpan ={6}><h2>No entries at this time</h2></td></tr>}
         {admin.map(item =>  <tr key = {item.id}>
             
-          <td>{item.feeling}</td>
-          <td>{item.understanding}</td>
-          <td>{item.support}</td>
-          <td>{item.comments}</td>
-          <td><input type = "checkbox"></input></td>
-          <td> <DeleteForeverIcon id ="deleteBtn" onClick={() => this.deleteEntry(item.id)}>
+          <td style = {{width:"12%"}}>{item.feeling}</td>
+          <td style = {{width:"12%"}}>{item.understanding}</td>
+          <td style = {{width:"12%"}}> {item.support}</td>
+          <td style = {{width:"30%"}}>{item.comments}</td>
+          <td style = {{width:"8%"}}><input type = "checkbox"></input></td>
+          <td style = {{width:"8%"}}> <DeleteForeverIcon id ="deleteBtn" onClick={() => this.deleteEntry(item.id)}>
          </DeleteForeverIcon>
           </td>
         </tr>)}
