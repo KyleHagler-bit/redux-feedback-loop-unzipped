@@ -5,10 +5,10 @@ const pool = require("../modules/pool");
 router.get('/', (req, res) => {
   console.log('GET in router');
   pool.query('SELECT * from "feedback";').then((result) => {
-      res.send(result.rows);
+    res.send(result.rows);
   }).catch((error) => {
-      console.log('Error GET ', error)
-      res.sendStatus(500);
+    console.log('Error GET ', error)
+    res.sendStatus(500);
   });
 })
 
@@ -29,15 +29,6 @@ router.post("/", async (req, res) => {
         RETURNING id;`,
       [feeling, understanding, support, comments]
     );
-    
-
-    // await Promise.all(
-    //   pizzas.map((pizza) => {
-    //     const insertLineItemText = `INSERT INTO "line_item" ("order_id", "pizza_id", "quantity") VALUES ($1, $2, $3)`;
-    //     const insertLineItemValues = [orderId, pizza.id, pizza.quantity];
-    //     return client.query(insertLineItemText, insertLineItemValues);
-    //   })
-    // );
 
     await client.query("COMMIT");
     res.sendStatus(201);
@@ -49,5 +40,20 @@ router.post("/", async (req, res) => {
     client.release();
   }
 });
+
+router.delete('/:id', (req, res) => {
+  let entryId = req.params.id;
+  console.log('Delete request for id', entryId);
+  let sqlText = 'DELETE FROM feedback WHERE id=$1;';
+  pool.query(sqlText, [entryId])
+      .then((result) => {
+          console.log('entry deleted');
+          res.sendStatus(200);
+      })
+      .catch((error) => {
+          console.log(`Error making database query ${sqlText}`, error);
+          res.sendStatus(500); // Good server always responds
+      })
+})
 
 module.exports = router;

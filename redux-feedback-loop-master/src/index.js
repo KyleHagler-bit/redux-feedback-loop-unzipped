@@ -9,12 +9,12 @@ import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 
 const formReducer = (state =
-  {
+  [{
     feeling: 0,
     understanding: 0,
     support: 0,
     comments: ''
-  }, action) => {
+  }], action) => {
   console.log("action in Reducer", action.payload)
   let newState = { ...state };
   if (action.type === "UPDATE") {
@@ -31,13 +31,22 @@ const formReducer = (state =
   return newState;
 };
 
-// const understandingReducer = (state = {}, action) => {
-//   let newState = { ...state };
-//   if (action.type === "UPDATE_UNDERSTANDING") {
-//     newState = { ...newState, ...action.payload };
-//   } 
-//   return newState;
-// };
+const adminReducer = (state = [], action) => {
+  let newState = [ ...state ];
+  if (action.type === "GET_ADMIN") {
+    newState = [ ...action.payload ];
+  } else if (action.type === "REMOVE_ENTRY"){
+    const filteredEntries = newState.filter(
+      (item) => item.id !== action.payload.id
+    );
+    newState = [filteredEntries]
+  }
+  // const filteredPizzas = newState.pizzas.filter(
+  //   (pizza) => pizza.id !== action.payload.id
+  // );
+  // newState = { ...newState, pizzas: filteredPizzas };
+  return newState;
+};
 
 // const supportReducer = (state = {}, action) => {
 //   let newState = { ...state };
@@ -58,6 +67,7 @@ const formReducer = (state =
 const storeInstance = createStore(
   combineReducers({
     form: formReducer,
+    admin: adminReducer
     // understanding: understandingReducer,
     // support: supportReducer,
     // comments: commentsReducer,

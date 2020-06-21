@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { connect } from 'react-redux';
-import { HashRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import FeelingForm from '../FeelingForm/FeelingForm';
@@ -10,7 +10,8 @@ import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
 import SupportForm from '../SupportForm/SupportForm';
 import CommentForm from '../CommentForm/CommentForm';
 import Review from '../Review/Review';
-import Submission from '../Submission/Submission'
+import Submission from '../Submission/Submission';
+import Admin from '../Admin/Admin';
 import Footer from '../Footer/Footer';
 
 
@@ -57,6 +58,9 @@ class App extends Component {
             </Route>
             <Route exact path ="/submission">
             <Submission/>
+            </Route>
+            <Route path ="/admin">
+            <Admin/>
             </Route>
           </Switch>
           <Footer />
