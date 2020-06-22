@@ -8,11 +8,12 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 
+//will have minimums (defaults) of 1's here
 const formReducer = (state =
   [{
-    feeling: 0,
-    understanding: 0,
-    support: 0,
+    feeling: 1,
+    understanding: 1,
+    support: 1,
     comments: ''
   }], action) => {
   console.log("action in Reducer", action.payload)
@@ -21,9 +22,9 @@ const formReducer = (state =
     newState = { ...newState, ...action.payload };
   } else if (action.type === "CLEAR") {
     newState = {
-      feeling: 0,
-      understanding: 0,
-      support: 0,
+      feeling: 1,
+      understanding: 1,
+      support: 1,
       comments: ''
     }
   }

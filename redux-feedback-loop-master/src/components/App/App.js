@@ -23,7 +23,7 @@ class App extends Component {
   getFeedback = () => {
     // grab the dispatch function from props
     const { dispatch } = this.props;
-    
+
     // axios server request
     axios.get("/")
       .then((response) => {
@@ -41,26 +41,26 @@ class App extends Component {
           <Header />
           <br />
           <Switch>
-            <Route exact path ="/">
-            <FeelingForm/>
+            <Route exact path="/">
+              <FeelingForm />
             </Route>
-            <Route exact path ="/understanding">
-            <UnderstandingForm/>
+            <Route exact path="/understanding">
+              <UnderstandingForm />
             </Route>
-            <Route exact path ="/support">
-            <SupportForm/>
+            <Route exact path="/support">
+              <SupportForm />
             </Route>
-            <Route exact path ="/comments">
-            <CommentForm/>
+            <Route exact path="/comments">
+              <CommentForm />
             </Route>
-            <Route exact path ="/review">
-            <Review getFeedback = {this.getFeedback}/>
+            <Route exact path="/review">
+              <Review getFeedback={this.getFeedback} />
             </Route>
-            <Route exact path ="/submission">
-            <Submission/>
+            <Route exact path="/submission">
+              <Submission />
             </Route>
-            <Route path ="/admin">
-            <Admin/>
+            <Route path="/admin">
+              <Admin />
             </Route>
           </Switch>
           <Footer />

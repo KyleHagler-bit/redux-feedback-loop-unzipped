@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-// import { Input, TextField, Button, Select, MenuItem} from '@material-ui/core';
+import { Button, Slider} from '@material-ui/core';
+import './SupportForm.css';
 
 
 class SupportForm extends React.Component {
 	
 	state = {
-    support: 0,
+    support: 1,
   }
 
 	// handle change handles input field changes
@@ -32,13 +33,39 @@ class SupportForm extends React.Component {
 	
 
   render() {
- 
+    const marks = [
+      {
+        value: 1,
+        label: 'I don\'t feel any support',
+      },
+      {
+        value: 3,
+        label: 'I\'ve felt better',
+      },
+      {
+        value: 4,
+        label: 'I\'ve felt worse',
+      },
+      {
+        value: 6,
+        label: 'I feel very supported!',
+      },
+    ];
     return (
       <>
         <h2>How well are you being supported?</h2>
         <form onSubmit={this.submitInfo}>
-        <input required type = "number" onChange={(event) => this.handleChange(event, "support")}></input>
-        <input type="submit" value="NEXT" />
+        <Slider id="supportSlider"
+  defaultValue={1}
+  onChange={this.handleChange}
+  aria-labelledby="discrete-slider-small-steps"
+  step={1}
+  min={1}
+  max={6}
+  valueLabelDisplay="auto"
+  marks = {marks}
+/> <br/>
+<Button color="primary" variant = "contained" type="submit" value="NEXT" id="next">NEXT</Button>
         </form>
         
       </>

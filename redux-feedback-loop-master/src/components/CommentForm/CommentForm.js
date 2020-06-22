@@ -1,24 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-// import { Input, TextField, Button, Select, MenuItem} from '@material-ui/core';
+import { Button, Input } from '@material-ui/core';
+import './CommentForm.css';
 
 
 class CommentForm extends React.Component {
-	
-	state = {
+
+  state = {
     comments: "",
   }
 
-	// handle change handles input field changes
+  // handle change handles input field changes
   handleChange = (event, fieldName) => {
     // console.log(`${fieldName}`, event);
     this.setState({ [fieldName]: event.target.value });
   };
-	
+
   // submit info handles our form submission
   submitInfo = (event) => {
-		// validation is handled by the form "required" attribute
+    // validation is handled by the form "required" attribute
     event.preventDefault();
     this.props.dispatch({ type: "UPDATE", payload: this.state });
     this.props.history.push("/review");
@@ -29,18 +30,18 @@ class CommentForm extends React.Component {
   //   console.log ("comments payload", this.state)
   //   this.props.dispatch({ type: "UPDATE", payload: this.state });
   // }
-	
+
 
   render() {
- 
+
     return (
       <>
-        <h2>Any comments you want to leave?</h2>
+        <h2>Any comments you want to leave?</h2><br />
         <form onSubmit={this.submitInfo}>
-        <input type = "text" onChange={(event) => this.handleChange(event, "comments")}></input>
-        <input type="submit" value="NEXT" />
+          <input id="comments" type="text" onChange={(event) => this.handleChange(event, "comments")} placeholder="Start writing here!"></input><br />
+          <Button color="primary" variant="contained" type="submit" value="NEXT" id="next">NEXT</Button>
         </form>
-        
+
       </>
     ); // end return
   } // end render

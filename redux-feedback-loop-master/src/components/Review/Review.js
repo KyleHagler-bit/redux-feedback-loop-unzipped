@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import './Review.css';
 // import swal from "sweetalert";
 import { withRouter } from "react-router";
-// import { Input, TextField, Button, Select, MenuItem, Paper} from "@material-ui/core";
+import {  Button, Paper} from "@material-ui/core";
 
 class Review extends React.Component {
  //here in review on submit is when the data should be sent to the database....
@@ -41,13 +42,15 @@ postHandler = (form) =>{
     return (
       <div>
         <h2>Review Your Feedback</h2>
-        <form onSubmit={this.submitInfo}>
-        Feelings:{feeling} <br/>
-        Understanding: {understanding} <br/>
-        Support: {support}<br/>
-        Comments: {comments}<br/>
-        <button>Submit</button>
-        </form>
+        
+          <Paper elevation ={6} style={{width: "20%", margin:"auto", padding: "1%"}}>
+        <h4>Feelings:</h4>{feeling}<br/>
+        <h4>Understanding:</h4> {understanding} <br/>
+        <h4>Support:</h4> {support}<br/>
+        <h4>Comments:</h4> {comments}<br/>
+        </Paper>
+        <Button color="primary" variant = "contained" id="submit" onClick={this.submitInfo}>Submit</Button>
+        
       </div>
     ); // end return
   } // end render

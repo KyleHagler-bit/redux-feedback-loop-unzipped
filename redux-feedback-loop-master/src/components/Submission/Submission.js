@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-// import { Input, TextField, Button, Select, MenuItem} from '@material-ui/core';
+import { Button} from '@material-ui/core';
 
 
 class Submission extends React.Component {
@@ -15,8 +15,8 @@ this.props.history.push('/'); //first stretch goal
   
     return (
       <>
-        <h2>Thank you!</h2>
-        <button onClick={this.redirect}>Leave New Feedback</button>
+        <h2>Thank you!</h2> <br/>
+        <Button variant = "contained" color = "primary" onClick={this.redirect}>Leave New Feedback</Button>
       </>
     ); // end return
   } // end render
