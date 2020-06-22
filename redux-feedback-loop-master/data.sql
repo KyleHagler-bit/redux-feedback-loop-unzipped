@@ -15,4 +15,7 @@ CREATE TABLE "feedback" (
 
 -- Sample feedback item
 INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
-VALUES (4, 4, 5, 'Doing Great!');
+VALUES (4, 4, 5, 'Doing Great!'),
+(5, 5, 1, 'Test 1!'),
+(4, 2, 5, 'This is an example of a very long comment. Where will it end? I am not sure but I hope it shows me what a long comment could be like.');
+--flagged and date not used at this time
