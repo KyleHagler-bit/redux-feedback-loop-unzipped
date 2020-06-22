@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
+//GET (as in get data from database to admin page table)
 router.get('/', (req, res) => {
   console.log('GET in router');
   pool.query('SELECT * from "feedback";').then((result) => {
@@ -12,6 +13,7 @@ router.get('/', (req, res) => {
   });
 })
 
+//POST (as in post new data to database table)
 router.post("/", async (req, res) => {
   const client = await pool.connect();
 
@@ -41,6 +43,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+//DELETE
 router.delete('/:id', (req, res) => {
   let entryId = req.params.id;
   console.log('Delete request for id', entryId);

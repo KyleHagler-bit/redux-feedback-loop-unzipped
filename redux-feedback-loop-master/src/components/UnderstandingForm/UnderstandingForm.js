@@ -25,13 +25,6 @@ class UnderstandingForm extends React.Component {
     this.props.history.push("/support");
   };
 
-  // componentWillUnmout is called when the client navigates away from the form page
-  // componentWillUnmount() {
-  //   console.log ("understanding payload", this.state)
-  //   this.props.dispatch({ type: "UPDATE", payload: this.state });
-  // }
-
-
   render() {
     const marks = [
       {

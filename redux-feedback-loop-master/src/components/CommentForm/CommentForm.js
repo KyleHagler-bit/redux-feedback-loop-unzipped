@@ -25,13 +25,6 @@ class CommentForm extends React.Component {
     this.props.history.push("/review");
   };
 
-  // componentWillUnmout is called when the client navigates away from the form page
-  // componentWillUnmount() {
-  //   console.log ("comments payload", this.state)
-  //   this.props.dispatch({ type: "UPDATE", payload: this.state });
-  // }
-
-
   render() {
 
     return (

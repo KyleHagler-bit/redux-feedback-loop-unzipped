@@ -7,9 +7,8 @@ import { Button } from '@material-ui/core';
 class Submission extends React.Component {
 
   redirect = () => {
-    // TODO: Clear the cart and navigate to the product page
 
-    this.props.history.push('/'); //first stretch goal
+    this.props.history.push('/'); //send user back to "first" page
   }
   render() {
 

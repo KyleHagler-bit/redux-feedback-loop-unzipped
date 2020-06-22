@@ -12,14 +12,6 @@ class FeelingForm extends React.Component {
     feeling: 1,
   }
 
-
-
-  // // handle change handles input field changes
-  // handleChange = (event, fieldName) => {
-  //   // console.log(`${fieldName}`, event);
-  //   this.setState({ [fieldName]: event.target.value });
-  // };
-
   handleChange = (event, feeling) => {
     console.log(feeling)
     this.setState({
@@ -46,18 +38,8 @@ class FeelingForm extends React.Component {
 
   }
 
-  // function valuetext(value) {
-  //   return ${value};
-  // }
-
-  // componentWillUnmout is called when the client navigates away from the form page
-  // componentWillUnmount() {
-  //   console.log ("feeling payload", this.state)
-  //   this.props.dispatch({ type: "UPDATE", payload: this.state });
-  // }
-
   render() {
-    const marks = [
+    const marks = [ //this marks certain values on the slider
       {
         value: 1,
         label: 'I feel pretty horrible',

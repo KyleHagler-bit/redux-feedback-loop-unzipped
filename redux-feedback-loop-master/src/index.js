@@ -33,45 +33,24 @@ const formReducer = (state =
 };
 
 const adminReducer = (state = [], action) => {
-  let newState = [ ...state ];
+  let newState = [...state];
   if (action.type === "GET_ADMIN") {
-    newState = [ ...action.payload ];
-  } else if (action.type === "REMOVE_ENTRY"){
+    newState = [...action.payload];
+  } else if (action.type === "REMOVE_ENTRY") {
     const filteredEntries = newState.filter(
       (item) => item.id !== action.payload.id
     );
     newState = [filteredEntries]
   }
-  // const filteredPizzas = newState.pizzas.filter(
-  //   (pizza) => pizza.id !== action.payload.id
-  // );
-  // newState = { ...newState, pizzas: filteredPizzas };
+
   return newState;
 };
 
-// const supportReducer = (state = {}, action) => {
-//   let newState = { ...state };
-//   if (action.type === "UPDATE_SUPPORT") {
-//     newState = { ...newState, ...action.payload };
-//   } 
-//   return newState;
-// };
-
-// const commentsReducer = (state = { comments: ""}, action) => {
-//   let newState = { ...state };
-//   if (action.type === "UPDATE_COMMENTS") {
-//     newState = { ...newState, ...action.payload };
-//   } 
-//   return newState;
-// };
 
 const storeInstance = createStore(
   combineReducers({
     form: formReducer,
     admin: adminReducer
-    // understanding: understandingReducer,
-    // support: supportReducer,
-    // comments: commentsReducer,
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

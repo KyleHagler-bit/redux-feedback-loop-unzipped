@@ -31,11 +31,6 @@ postHandler = (form) =>{
   this.props.history.push("/submission");
 };
 
-// componentWillUnmount() {
-//   //This should be a post
-//   this.postHandler(this.props.form);
-// }
-
   render() {
     const {feeling, understanding, support, comments} = this.props.form;
     console.log(`feel: ${feeling} understand: ${understanding}`)
